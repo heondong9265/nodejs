@@ -1,0 +1,90 @@
+<head>
+    <meta charset="UTF-8" />
+    <title>자바웹</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="./button.css">
+</head>
+
+<body>
+    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+    <script language="JavaScript">
+
+
+        $(document).ready(function () {
+            var title = {
+                text: "core별 task",
+            };
+            var subtitle = {
+                text: "조져보자",
+            };
+            var xAxis = {
+                categories: ["core1", "core2", "core3", "core4", "core5"],
+            };
+            var yAxis = {
+                title: {
+                    text: "숫자)",
+                },
+                plotLines: [
+                    {
+                        value: 0,
+                        width: 1,
+                        color: "#808080",
+                    },
+                ],
+            };
+
+            var tooltip = {
+                valueSuffix: "\xB0C",
+            };
+
+            var legend = {
+                layout: "vertical",
+                align: "right",
+                verticalAlign: "middle",
+                borderWidth: 0,
+            };
+
+            var series = [
+                {
+                    name: "Max",
+                    data: ["{{max}}"],
+                },
+                {
+                    name: "MIn",
+                    data: ["{{min}}"],
+                },
+                {
+                    name: "average",
+                    data: ["{{average1}}"],
+                },
+            ];
+
+            var json = {};
+
+            json.title = title;
+            json.subtitle = subtitle;
+            json.xAxis = xAxis;
+            json.yAxis = yAxis;
+            json.tooltip = tooltip;
+            json.legend = legend;
+            json.series = series;
+
+            $("#container").highcharts(json);
+
+
+        });        
+    </script>
+    <a href="/as/0/core1">core1</a>
+    <a href="/as/1/core2">core2</a>
+    <a href="/as/2/core3">core3</a>
+    <a href="/as/3/core4">core4</a>
+    <a href="/as/4/core5">core5</a>
+    <a href="/as/5/task1">task1</a>
+    <a href="/as/6/task2">task2</a>
+    <a href="/as/7/task3">task3</a>
+    <a href="/as/8/task4">task4</a>
+    <a href="/as/9/task5">task5</a>
+</body>
+
+</html>
